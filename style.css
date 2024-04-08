@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  form {
+    max-width: 500px;
+    padding: 20px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+  
+  legend {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"],
+  input[type="reset"] {
+    width: 48%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  input[type="submit"]:hover,
+  input[type="reset"]:hover {
+    background-color: #45a049;
+  }
+  
+  #error-message {
+    color: red;
+    font-weight: bold;
+  }
+
+  #output {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .output-container {
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+  }
+
+  
+  .output-container h2 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .output-container p {
+    margin-bottom: 5px;
+  }
