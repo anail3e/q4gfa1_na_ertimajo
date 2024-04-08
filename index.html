@@ -10,45 +10,44 @@
 </head>
 <body>
 
-<form id="signupsheet">
+<form id="signupForm">
   <fieldset>
     <legend>Sign Up</legend>
-    <label for="name">Full Name:</label><br>
-    <input type="text" id="name" name="Full Name" onblur="validate(this)" onfocus="clearBorder(this)"><br><br>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="Name" onblur="validateInput(this)" onfocus="clearBorder(this)"><br><br>
     
-    <label for="username">Username (Preferred):</label><br>
-    <input type="text" id="username" name="Username" onblur="validate(this)" onfocus="clearBorder(this)"><br><br>
+    <label for="username">Preferred Username:</label><br>
+    <input type="text" id="username" name="Username" onblur="validateInput(this)" onfocus="clearBorder(this)"><br><br>
     
     <label for="password">Password:</label><br>
-    <input type="password" id="password" name="Password" onblur="validate(this)" onfocus="clearBorder(this)"><br><br>
+    <input type="password" id="password" name="Password" onblur="validateInput(this)" onfocus="clearBorder(this)"><br><br>
     
     <label for="email">Email:</label><br>
-    <input type="email" id="email" name="Email Address" onblur="validate(this)" onfocus="clearBorder(this)"><br><br>
+    <input type="email" id="email" name="Email" onblur="validateInput(this)" onfocus="clearBorder(this)"><br><br>
     
-    <label for="address">Home Address:</label><br>
-    <input type="text" id="address" name="Home Address" onblur="validate(this)" onfocus="clearBorder(this)"><br><br>
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="Address" onblur="validateInput(this)" onfocus="clearBorder(this)"><br><br>
     
     <label for="gender">Gender:</label><br>
-    <select id="gender" name="Gender" onblur="validate(this)" onfocus="clearBorder(this)">
+    <select id="gender" name="Gender" onblur="validateInput(this)" onfocus="clearBorder(this)">
       <option value="Male">Male</option>
       <option value="Female">Female</option>
       <option value="prefer_not_to_mention">Prefer not to mention</option>
     </select><br><br>
     
     <label for="interests">Interests:</label><br>
-    <textarea id="interests" name="Interests" rows="4" cols="50" onblur="validate(this)" onfocus="clearBorder(this)"></textarea><br><br>
+    <textarea id="interests" name="Interests" rows="4" cols="50" onblur="validateInput(this)" onfocus="clearBorder(this)"></textarea><br><br>
     
     <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
+    <input type="reset" value="Reset" onclick="resetForm()">
   </fieldset>
 </form>
 
 <div id="output" class="output-container">
-  <!-- Output will be dynamically added here -->
 </div>
 
 <script>
-function validate(element) {
+function validateInput(element) {
   if (element.value === "") {
     element.style.border = "2px solid red";
   } else {
@@ -60,12 +59,16 @@ function clearBorder(element) {
   element.style.border = "";
 }
 
-document.getElementById("signupsheet").addEventListener("submit", function(event) {
+function resetForm() {
+  document.getElementById("output").innerHTML = ""; // Clear output
+}
+
+document.getElementById("signupForm").addEventListener("submit", function(event) {
   event.preventDefault();
   
   var formData = new FormData(event.target);
   var outputDiv = document.getElementById("output");
-  outputDiv.innerHTML = "<h2>Your Information:</h2>";
+  outputDiv.innerHTML = "<h2>Submitted Information:</h2>";
   
   for (var pair of formData.entries()) {
     outputDiv.innerHTML += "<p><strong>" + pair[0] + ":</strong> " + pair[1] + "</p>";
@@ -75,4 +78,3 @@ document.getElementById("signupsheet").addEventListener("submit", function(event
 
 </body>
 </html>
-
